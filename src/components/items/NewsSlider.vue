@@ -1,16 +1,18 @@
 <template>
   <div class="news-slider" @mouseover="stopAutoSlide" @mouseleave="startAutoSlide">
     <div v-for="(news, index) in props.newsList" :key="news.title" class="news-card" v-show="index === activeIndex">
-      <a :href="news.link" target="_blank">
-        <img :src="news.image" :alt="news.title" class="news-image" />
-        <h3>{{ news.title }}</h3>
-      </a>
+      <div class="img-wrapper">
+        <a :href="news.link" target="_blank">
+          <img :src="news.image" :alt="news.title" class="news-image"/>
+          <h3>{{ news.title }}</h3>
+        </a>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch } from 'vue';
+import {onMounted, onUnmounted, ref, watch} from 'vue';
 
 const props = defineProps({
   newsList: Array
@@ -36,7 +38,7 @@ onUnmounted(stopAutoSlide);
 watch(() => props.newsList, () => {
   activeIndex.value = 0; // Reset to the first news item
   startAutoSlide();
-}, { deep: true });
+}, {deep: true});
 </script>
 
 <style scoped>
@@ -69,7 +71,6 @@ watch(() => props.newsList, () => {
 .news-image {
   width: 100%;
   height: 100%; /* Adjust if you want to maintain aspect ratio */
-  object-fit: cover; /* Adjust or remove if needed */
 }
 
 .news-card h3 {
@@ -87,5 +88,10 @@ watch(() => props.newsList, () => {
 .news-card.v-show {
   opacity: 1;
   position: relative;
+}
+
+.img-wrapper {
+  width: 100%;
+  height: 100%;
 }
 </style>
