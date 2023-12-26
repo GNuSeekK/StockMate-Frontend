@@ -15,7 +15,7 @@ const getStockInfoList = async () => {
 const fetchStockPrices = async (code, start, end) => {
   try {
     const response = await localAxios().get(`/stock/price`, {
-      params: { code, start, end }
+      params: {code, start, end}
     });
     return response.data;
   } catch (error) {
@@ -23,4 +23,14 @@ const fetchStockPrices = async (code, start, end) => {
     throw error;
   }
 };
-export default { getStockInfoList, fetchStockPrices };
+
+const getPopularStockPriceList = async () => {
+  try {
+    const response = await axios.get('/stock/popular');
+    return response.data;
+  } catch (error) {
+    console.error('getPopularStockList:', error);
+    throw error;
+  }
+};
+export default {getStockInfoList, fetchStockPrices, getPopularStockPriceList};

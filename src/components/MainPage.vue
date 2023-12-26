@@ -5,6 +5,9 @@
       <SearchBar />
     </div>
     <div class="content-section">
+      <PopularStockSection />
+    </div>
+    <div class="content-section">
       <NewsSection />
     </div>
   </a-layout-content>
@@ -13,6 +16,7 @@
 <script setup>
 import SearchBar from '../components/pagecomponent/SearchBar.vue';
 import NewsSection from '../components/pagecomponent/NewsSection.vue';
+import PopularStockSection from "@/components/pagecomponent/PopularStockSection.vue";
 </script>
 
 <style scoped>
@@ -23,8 +27,9 @@ import NewsSection from '../components/pagecomponent/NewsSection.vue';
 
 .welcome-section {
   text-align: center;
-  margin-top: 70px;
-  margin-bottom: 100px;
+  padding-top: 70px;
+  border-bottom: 1px double #e8e8e8;
+  padding-bottom: 100px;
   font-size: 30px;
   font-weight: bold;
 }
@@ -32,6 +37,10 @@ import NewsSection from '../components/pagecomponent/NewsSection.vue';
 .content-section {
   display: flex;
   justify-content: center;
+  border-top: 1px double  #e8e8e8;
+  padding-top: 50px;
+  border-bottom: 1px double #e8e8e8;
+  padding-bottom: 50px;
 }
 
 .logo-text {
