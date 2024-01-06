@@ -23,15 +23,15 @@ let endDate = "20210630";
 const rangeChange = async () => {
   const newVal = props.selectedRange;
   let today = new Date();
-  endDate = today.toLocaleDateString().replaceAll('.', '').replaceAll(' ', '');
+  endDate = today.toLocaleDateString().replaceAll('.', '').replaceAll(' ', '0');
   if (newVal === '1w') {
-    startDate = new Date(today.setDate(today.getDate() - 7)).toLocaleDateString().replaceAll('.', '').replaceAll(' ', '');
+    startDate = new Date(today.setDate(today.getDate() - 7)).toLocaleDateString().replaceAll('.', '').replaceAll(' ', '0');
   } else if (newVal === '1m') {
-    startDate = new Date(today.setMonth(today.getMonth() - 1)).toLocaleDateString().replaceAll('.', '').replaceAll(' ', '');
+    startDate = new Date(today.setMonth(today.getMonth() - 1)).toLocaleDateString().replaceAll('.', '').replaceAll(' ', '0');
   } else if (newVal === '1y') {
-    startDate = new Date(today.setFullYear(today.getFullYear() - 1)).toLocaleDateString().replaceAll('.', '').replaceAll(' ', '');
+    startDate = new Date(today.setFullYear(today.getFullYear() - 1)).toLocaleDateString().replaceAll('.', '').replaceAll(' ', '0');
   } else if (newVal === 'all') {
-    startDate = new Date(today.setFullYear(today.getFullYear() - 20)).toLocaleDateString().replaceAll('.', '').replaceAll(' ', '');
+    startDate = new Date(today.setFullYear(today.getFullYear() - 20)).toLocaleDateString().replaceAll('.', '').replaceAll(' ', '0');
   }
   await loadChartData();
 }
